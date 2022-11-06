@@ -1,14 +1,20 @@
 print("Seja bem vindo ao quiz da Equipe The Warriors! ")
 
-jogo_do_quiz = input("Quer começar? (s/n) ")
 
+while True:
+    jogo_do_quiz = input("Quer começar? (S/N) : ").upper()
+    if jogo_do_quiz == "S":
+        print('Então prepare-se')
+        break
+    elif jogo_do_quiz == "N":
+        print('Fim do Game...')
+        exit()
+        break
+    else:
+        print('Opçao errada, tente novamente...')
 
-print(jogo_do_quiz)
-
-if jogo_do_quiz != "s":
-    quit()
 print()
-print()
+print('-=-' * 15)
 print()
 
 print('O jogo vai começar!!!!')
@@ -71,15 +77,15 @@ print()
 
 resposta_certas = 0
 for pk, pv in perguntas.items():
-    print(f'{pk}: `{pv["pergunta"]}')
-
+    print(f'{pk}: {pv["pergunta"]}')
     print('respostas: ')
+
     for rk, rv in pv['respostas'].items():
         print(f'[{rk}]: {rv}')
 
     resposta_usuario = input('Sua resposta: ')
 
-    print()
+    print('-=-' * 15)
 
     if resposta_usuario == pv['resposta_certa']:
         print('EHHHHHHHH!!!!!ACERTOU!!!!!')
@@ -97,5 +103,3 @@ porcentagem_acerto = resposta_certas / qtd_perguntas * 100
 
 print(f'você acertou {resposta_certas} /10 das perguntas.')
 print(f'Sua porcentagem de acerto foi de {porcentagem_acerto}%.')
-
-
